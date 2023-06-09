@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:LoginApp.Maui.ViewModels"
+             x:DataType="viewmodel:LoginPageViewModel"
+             x:Class="LoginApp.Maui.LoginPage"
+             Title="LoginPage">
+
+    <VerticalStackLayout>
+        <!--this is image logo on top-->
+        <Frame CornerRadius="50" WidthRequest="120" HeightRequest="120" Margin="0,20,0,0" Padding="0" BorderColor="Green">
+            <Image Source="logo.png" WidthRequest="80" HeightRequest="80" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+        </Frame>
+        
+        <!--this is free text for sign in-->
+        <StackLayout Orientation="Vertical" Spacing="10" Margin="0,25,0,0">
+            <Label Text="Welcome" FontAttributes="Bold" FontSize="Large" TextColor="BlueViolet" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            <Label Text="Sing in to continue" TextColor="LightSkyBlue" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+        </StackLayout>
+        
+        <!--This grid for email and password and their images-->
+        <Grid RowDefinitions="*,*,*" Margin="0,50,0,0" Padding="10" RowSpacing="10" HorizontalOptions="Center">
+            
+            <!--This for email address-->
+            <StackLayout Orientation="Horizontal">
+                <Image Source="user.png" WidthRequest="30" HeightRequest="30"></Image>
+                <Entry Text="{Binding Email}" WidthRequest="300" HeightRequest="50" Margin="10,0,0,0" Placeholder="Email Address" FontAttributes="Bold"></Entry>
+            </StackLayout>
+
+            <!--This for password-->
+            <StackLayout Orientation="Horizontal" Grid.Row="1">
+                <Image Source="lock.png" WidthRequest="30" HeightRequest="30"></Image>
+                <Entry Text="{Binding Password}" IsPassword="True" WidthRequest="300" HeightRequest="50" Margin="10,0,0,0" Placeholder="Password" FontAttributes="Bold"></Entry>
+            </StackLayout>
+
+               <!--this remember me and forgot password button and checkbox-->
+            <StackLayout Grid.Row="2" Margin="35,0,0,0" Orientation="Horizontal">
+                <CheckBox IsChecked="False"></CheckBox>
+                <Label Text="Remember Me" FontAttributes="Bold" Margin="-10,13,0,0"></Label>
+                <Button Text="Forgot Password" BackgroundColor="Transparent" TextColor="IndianRed" FontAttributes="Bold" BorderWidth="0" Margin="50,0,0,0"></Button>
+            </StackLayout>
+            
+        </Grid>
+        
+        <!--this is Sign in button-->
+        <Button Command="{Binding SignInCommand}" FontAttributes="Bold" Text="Sign In" CornerRadius="10" FontSize="20" VerticalOptions="Center" Margin="30,0,30,0"></Button>
+        
+        <!--this is new user? sign up-->
+        <StackLayout Margin="0,35,0,0" Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="New User?" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Blue" FontSize="Small"></Label>
+            <Button Text="Sign Up" FontSize="Small" TextColor="Green" FontAttributes="Bold" BorderWidth="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"></Button>
+        </StackLayout>
+    </VerticalStackLayout>
+    
+    
+    
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿@LoginApp.Api_HostAddress = https://localhost:7173
+
+POST {{LoginApp.Api_HostAddress}}/api/user
+Content-Type: application/json
+
+{
+  "name": "User",
+  "email": "User@gmail.com",
+  "password":"User@123"
+}
+
+###
+
+GET {{LoginApp.Api_HostAddress}}/api/user
+
+###
+
+GET {{LoginApp.Api_HostAddress}}/api/user/login/User@gmail.com/User@123
+
+###

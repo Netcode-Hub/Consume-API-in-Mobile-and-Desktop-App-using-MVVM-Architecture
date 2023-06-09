@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LoginApp.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LoginApp.Maui"
+    xmlns:views="clr-namespace:LoginApp.Maui.Views"
+    xmlns:viewmodel="clr-namespace:LoginApp.Maui.ViewModels"
+    x:DataType="viewmodel:AppShellViewModel"
+    Shell.TabBarIsVisible="False">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"/>
+
+    <!--Sidebar-->
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home" Icon="house.svg"  ContentTemplate="{DataTemplate views:HomePage}"></ShellContent>
+        <ShellContent Title="Contact Us" Icon="envelope.svg" ContentTemplate="{DataTemplate views:ContactPage}"></ShellContent>
+        <ShellContent Title="About Us" Icon="mound.svg" ContentTemplate="{DataTemplate views:AboutPage}"></ShellContent>
+    </FlyoutItem>
+    
+    <!--Sidebar footer-->
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Command="{Binding LogoutCommand}" BackgroundColor="IndianRed" Text="Logout" TextColor="White" FontAttributes="Bold" FontSize="18"></Button>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+</Shell>
